@@ -1,0 +1,10 @@
+--- linux-3.2-orig//arch/arm/tools/mach-types	2013-03-06 19:05:13.000000000 +0100
++++ linux-3.2-sarge//arch/arm/tools/mach-types	2013-03-06 19:06:16.000000000 +0100
+@@ -249,6 +249,7 @@ davinci_dm6467_evm	MACH_DAVINCI_DM6467_E
+ davinci_dm355_evm	MACH_DAVINCI_DM355_EVM	DAVINCI_DM355_EVM	1381
+ littleton		MACH_LITTLETON		LITTLETON		1388
+ realview_pb11mp		MACH_REALVIEW_PB11MP	REALVIEW_PB11MP		1407
++sarge			MACH_SARGE		SARGE			1426
+ mx27_3ds		MACH_MX27_3DS		MX27_3DS		1430
+ halibut			MACH_HALIBUT		HALIBUT			1439
+ trout			MACH_TROUT		TROUT			1440
