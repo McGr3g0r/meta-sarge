@@ -4,7 +4,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${COREBASE}/COPYING.GPL;md5=751419260aa954499f7abaabaa882bbe"
-#SRC_URI += "file://COPYING.GPL"
 
 inherit task
 

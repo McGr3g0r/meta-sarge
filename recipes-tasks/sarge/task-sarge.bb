@@ -6,7 +6,6 @@
 DESCRIPTION = "Task packages for the sarge-at91 distribution"
 HOMEPAGE = "http://www.blackmesaeast.com.pl"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
-#SRC_URI += "file://COPYING.GPL"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${COREBASE}/COPYING.GPL;md5=751419260aa954499f7abaabaa882bbe"
