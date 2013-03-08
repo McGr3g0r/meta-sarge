@@ -11,6 +11,7 @@ SRC_URI += "${KERNELORG_MIRROR}/linux/kernel/v3.x/linux-${PV}.tar.bz2;name=kerne
 
 SRC_URI_append_sarge-at91 = " \
                          file://board-sarge.patch \
+                         file://ste100p-sarge.patch \
                          "
 
 

@@ -2396,7 +2396,6 @@ diff -Nurp linux-3.2-orig//arch/arm/configs/sarge_defconfig linux-3.2-sarge//arc
 +CONFIG_HAS_IOPORT=y
 +CONFIG_HAS_DMA=y
 +CONFIG_NLATTR=y
-diff -Nurp linux-3.2-orig//arch/arm/kernel/vmlinux.lds linux-3.2-sarge//arch/arm/kernel/vmlinux.lds
 diff -Nurp linux-3.2-orig//arch/arm/mach-at91/board-sarge.c linux-3.2-sarge//arch/arm/mach-at91/board-sarge.c
 --- linux-3.2-orig//arch/arm/mach-at91/board-sarge.c	1970-01-01 01:00:00.000000000 +0100
 +++ linux-3.2-sarge//arch/arm/mach-at91/board-sarge.c	2013-03-06 23:18:52.000000000 +0100
@@ -2665,50 +2664,3 @@ diff -Nurp linux-3.2-orig//arch/arm/tools/mach-types linux-3.2-sarge//arch/arm/t
  mx27_3ds		MACH_MX27_3DS		MX27_3DS		1430
  halibut			MACH_HALIBUT		HALIBUT			1439
  trout			MACH_TROUT		TROUT			1440
-diff -Nurp linux-3.2-orig//drivers/net/phy/ste10Xp.c linux-3.2-sarge//drivers/net/phy/ste10Xp.c
---- linux-3.2-orig//drivers/net/phy/ste10Xp.c	2012-01-05 00:55:44.000000000 +0100
-+++ linux-3.2-sarge//drivers/net/phy/ste10Xp.c	2013-03-07 09:50:43.000000000 +0100
-@@ -113,6 +113,26 @@ static struct phy_driver ste100p_pdriver
- 	.driver = {.owner = THIS_MODULE,}
- };
- 
-+
-+static struct phy_driver ste100pX_pdriver = {
-+	.phy_id = STE100P_PHY_ID,
-+	.phy_id_mask = 0xffffff00,
-+	.name = "STe100pX",
-+	.features = PHY_BASIC_FEATURES | SUPPORTED_Pause,
-+	.flags = PHY_HAS_INTERRUPT,
-+	.config_init = ste10Xp_config_init,
-+	.config_aneg = genphy_config_aneg,
-+	.read_status = genphy_read_status,
-+	.ack_interrupt = ste10Xp_ack_interrupt,
-+	.config_intr = ste10Xp_config_intr,
-+	.suspend = genphy_suspend,
-+	.resume = genphy_resume,
-+	.driver = {.owner = THIS_MODULE,}
-+};
-+
-+
-+
-+
- static int __init ste10Xp_init(void)
- {
- 	int retval;
-@@ -120,12 +140,16 @@ static int __init ste10Xp_init(void)
- 	retval = phy_driver_register(&ste100p_pdriver);
- 	if (retval < 0)
- 		return retval;
-+	retval = phy_driver_register(&ste100pX_pdriver);
-+	if (retval < 0)
-+		return retval;
- 	return phy_driver_register(&ste101p_pdriver);
- }
- 
- static void __exit ste10Xp_exit(void)
- {
- 	phy_driver_unregister(&ste100p_pdriver);
-+	phy_driver_unregister(&ste100pX_pdriver);
- 	phy_driver_unregister(&ste101p_pdriver);
- }
- 
